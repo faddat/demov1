@@ -12,6 +12,7 @@ test('the hosted Office Lab copy runs, exports captured evidence and resets ente
  assert.equal(w.document.querySelector('.hub-home').getAttribute('href'),'/');await app.setPeriod('week');w.document.getElementById('enterprise-toggle').click();w.document.getElementById('finish').click();await waitFor(()=>b.snapshot().metrics.complete);
  const out=app.exportRun();assert.equal(out.enterprise_projection.assisted.completed,290000);assert.equal(out.sdk_records.length,480);assert.equal(out.modeled_usage.model_tool_calls,600);
  w.NunchiOfficeFeedback.updateChain();assert.equal(w.document.getElementById('chain-height').textContent,'#480');
+ const speedManual=w.document.getElementById('speed-manual'),speedText=speedManual.textContent;let speedMutations=0;const speedObserver=new w.MutationObserver(()=>speedMutations++);speedObserver.observe(speedManual,{childList:true,characterData:true,subtree:true});w.NunchiOfficeFeedback.updateSpeed();await new Promise(r=>setTimeout(r,20));speedObserver.disconnect();assert.equal(speedManual.textContent,speedText);assert.equal(speedMutations,0);
  w.document.getElementById('enterprise-toggle').click();assert.equal(b.snapshot().metrics.minutes,0);assert.equal(b.snapshot().records.length,0);assert.equal(b.snapshot().metrics.assisted.cost,0);
 });
 test('the hosted Exchange Lab copy signs and matches a paper order, verifies it, rejects tampering and exports',async t=>{

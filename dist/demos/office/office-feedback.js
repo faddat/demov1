@@ -6,7 +6,7 @@
   const $ = (selector) => document.querySelector(selector);
   const setText = (selector, value) => {
     const node = $(selector);
-    if (node) node.textContent = value;
+    if (node && node.textContent !== value) node.textContent = value;
     return node;
   };
 

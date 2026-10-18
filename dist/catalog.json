@@ -1,0 +1,76 @@
+[
+  {
+    "id": "office",
+    "number": "01",
+    "category": "ai",
+    "eyebrow": "AI WORK & COST METERING",
+    "title": "Office Lab",
+    "headline": "Same work. Two ways to run it.",
+    "description": "Build a manual team and an agent-assisted team. Run a shift, compare the modeled output and follow the AI spend into its records.",
+    "path": "/demos/office/",
+    "video": "/media/office-preview.mp4",
+    "poster": "/media/office-poster.jpg",
+    "preview": "Recorded office preview · simulated work and prices",
+    "tags": [
+      "Change the team",
+      "Compare cost per brief",
+      "Inspect & export"
+    ],
+    "tryThis": "Add an agent, remove a reviewer, then run a workweek. See which bottleneck changes the result.",
+    "modules": [
+      {
+        "name": "Oracle ledger",
+        "text": "Stores the sample usage payloads captured with the Rust SDK, linked to a customer and task."
+      },
+      {
+        "name": "Signed transactions",
+        "text": "Preserves the recorded writer, transaction hash and captured signature-verification result."
+      },
+      {
+        "name": "Record queries",
+        "text": "The demo groups those captured calls by brief so you can inspect quantities, charges and exported evidence."
+      }
+    ],
+    "application": "The application supplies the office, task scheduler, sample rates and staffing assumptions. People, agents, completion times and costs are modeled. The hosted browser replays captured SDK records; additional modeled calls create no new signatures.",
+    "takeaway": "See how a team could connect AI usage to a customer, a job and a cost, then use that data to decide what to change.",
+    "scope": "Modeled throughput and prices · captured SDK evidence",
+    "source": "Office Lab v59 · 9a14a08710baab6aed0cbf105bd817a67b432c42"
+  },
+  {
+    "id": "exchange",
+    "number": "02",
+    "category": "finance",
+    "eyebrow": "FINANCIAL APPS & SIGNED EXECUTION",
+    "title": "Exchange Lab",
+    "headline": "One order. A trail you can check.",
+    "description": "Step into a low-poly trading room. Watch a paper order get signed, verified and matched, then try a trade and inspect its evidence.",
+    "path": "/demos/exchange/",
+    "video": "/media/exchange-preview.mp4",
+    "poster": "/media/exchange-poster.png",
+    "preview": "Animated SDK playback · illustrative reference prices",
+    "tags": [
+      "Watch the walkthrough",
+      "Try a paper trade",
+      "Verify a signature"
+    ],
+    "tryThis": "Watch the first BTC trade, open its receipt, then alter the signature to see verification reject it.",
+    "modules": [
+      {
+        "name": "CLOB matching engine",
+        "text": "The SDK matches compatible orders by price, then time, using the resting maker’s price."
+      },
+      {
+        "name": "Transaction codec & cryptography",
+        "text": "Actual Rust SDK code runs as WebAssembly in the browser to sign, decode and verify each paper order."
+      },
+      {
+        "name": "Signed order exports",
+        "text": "Inspect the original transaction bytes and IDs. The source project includes an offline signature verifier."
+      }
+    ],
+    "application": "The application adds the paper wallet, balances, scripted traders and interface. Coinbase supplies live spot references and market candles in the full demo. Preview prices are illustrative. Trades are paper; this example does not deploy a validator network or settle real funds.",
+    "takeaway": "See how SDK modules can sit underneath a financial application, with signed intent, deterministic matching and inspectable transaction data.",
+    "scope": "Live market references in the demo · paper assets · SDK in browser",
+    "source": "Exchange Lab v4 · a8240784a81dc91ed6a3bad0929728d543bee01f"
+  }
+]

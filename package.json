@@ -1,0 +1,7 @@
+{
+  "name": "nunchi-demo-hub",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "node tools/build-hub.mjs", "test": "node --test tests/*.test.mjs"},
+  "devDependencies": {"happy-dom": "21.0.1", "three": "0.180.0"}
+}

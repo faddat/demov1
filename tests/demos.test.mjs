@@ -3,12 +3,15 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {Window} from 'happy-dom';
 async function waitFor(fn){for(let i=0;i<200;i++){if(fn())return;await new Promise(r=>setTimeout(r,15));}throw Error('Demo did not settle.');}
-function page(t,url){const w=new Window({url,settings:{enableJavaScriptEvaluation:true,suppressInsecureJavaScriptEnvironmentWarning:true}});w.TextEncoder=TextEncoder;w.TextDecoder=TextDecoder;w.WebAssembly=WebAssembly;t.after(async()=>{w.dispatchEvent(new w.Event('pagehide'));await w.happyDOM.abort();w.close();});return w;}
+function page(t,url){const w=new Window({url,settings:{enableJavaScriptEvaluation:true,disableJavaScriptFileLoading:true,disableCSSFileLoading:true,suppressInsecureJavaScriptEnvironmentWarning:true}});w.TextEncoder=TextEncoder;w.TextDecoder=TextDecoder;w.WebAssembly=WebAssembly;t.after(async()=>{w.dispatchEvent(new w.Event('pagehide'));await w.happyDOM.abort();w.close();});return w;}
 test('the hosted Office Lab copy runs, exports captured evidence and resets enterprise from zero',async t=>{
  const w=page(t,'https://hub.test/demos/office/');w.fetch=async()=>{throw Error('Recorded replay only');};w.document.write(await fs.readFile(new URL('../dist/demos/office/index.html',import.meta.url),'utf8'));
  await waitFor(()=>w.NunchiOfficeEnterpriseBridge?.snapshot().ready&&!w.NunchiOfficeEnterpriseBridge.snapshot().busy);const b=w.NunchiOfficeEnterpriseBridge,app=w.NunchiEnterprise;
+ w.eval(await fs.readFile(new URL('../dist/demos/office/office-feedback.js',import.meta.url),'utf8'));
+ assert.equal(w.document.querySelector('.assisted-team h2').textContent,'Agent-assisted team');assert.equal(w.document.querySelector('#assumptions-open').closest('.assumptions-strip')!==null,true);assert.equal(w.document.getElementById('record-chain-title').textContent,'Record every model and tool call.');assert.equal(w.document.getElementById('speed-delta').textContent,'25 min sooner');assert.match(w.document.querySelector('.chain-boundary').textContent,/not a public-network block height/);
  assert.equal(w.document.querySelector('.hub-home').getAttribute('href'),'/');await app.setPeriod('week');w.document.getElementById('enterprise-toggle').click();w.document.getElementById('finish').click();await waitFor(()=>b.snapshot().metrics.complete);
  const out=app.exportRun();assert.equal(out.enterprise_projection.assisted.completed,290000);assert.equal(out.sdk_records.length,480);assert.equal(out.modeled_usage.model_tool_calls,600);
+ w.NunchiOfficeFeedback.updateChain();assert.equal(w.document.getElementById('chain-height').textContent,'#480');
  w.document.getElementById('enterprise-toggle').click();assert.equal(b.snapshot().metrics.minutes,0);assert.equal(b.snapshot().records.length,0);assert.equal(b.snapshot().metrics.assisted.cost,0);
 });
 test('the hosted Exchange Lab copy signs and matches a paper order, verifies it, rejects tampering and exports',async t=>{

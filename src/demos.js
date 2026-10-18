@@ -3,12 +3,12 @@ export const demos = [
   id:'office',number:'01',category:'ai',eyebrow:'AI WORK & COST METERING',title:'Office Lab',headline:'Same work. Two ways to run it.',
   description:'Build a manual team and an agent-assisted team. Run a shift, compare the modeled output and follow the AI spend into its records.',
   path:'/demos/office/',video:'/media/office-preview.mp4',poster:'/media/office-poster.jpg',preview:'Recorded office preview · simulated work and prices',
-  tags:['Change the team','Compare cost per brief','Inspect & export'],
+  tags:['Change the team','Compare cost per task','Inspect & export'],
   tryThis:'Add an agent, remove a reviewer, then run a workweek. See which bottleneck changes the result.',
   modules:[
    {name:'Oracle ledger',text:'Stores the sample usage payloads captured with the Rust SDK, linked to a customer and task.'},
    {name:'Signed transactions',text:'Preserves the recorded writer, transaction hash and captured signature-verification result.'},
-   {name:'Record queries',text:'The demo groups those captured calls by brief so you can inspect quantities, charges and exported evidence.'}
+   {name:'Record queries',text:'The demo groups those captured calls by task so you can inspect quantities, charges and exported evidence.'}
   ],
   application:'The application supplies the office, task scheduler, sample rates and staffing assumptions. People, agents, completion times and costs are modeled. The hosted browser replays captured SDK records; additional modeled calls create no new signatures.',
   takeaway:'See how a team could connect AI usage to a customer, a job and a cost, then use that data to decide what to change.',

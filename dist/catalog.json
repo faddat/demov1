@@ -13,7 +13,7 @@
     "preview": "Recorded office preview · simulated work and prices",
     "tags": [
       "Change the team",
-      "Compare cost per brief",
+      "Compare cost per task",
       "Inspect & export"
     ],
     "tryThis": "Add an agent, remove a reviewer, then run a workweek. See which bottleneck changes the result.",
@@ -28,7 +28,7 @@
       },
       {
         "name": "Record queries",
-        "text": "The demo groups those captured calls by brief so you can inspect quantities, charges and exported evidence."
+        "text": "The demo groups those captured calls by task so you can inspect quantities, charges and exported evidence."
       }
     ],
     "application": "The application supplies the office, task scheduler, sample rates and staffing assumptions. People, agents, completion times and costs are modeled. The hosted browser replays captured SDK records; additional modeled calls create no new signatures.",

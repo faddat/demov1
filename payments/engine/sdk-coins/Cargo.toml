@@ -1,0 +1,23 @@
+[package]
+name = "nunchi-coins"
+version = "2026.9.0-alpha.1"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+[features]
+default = ["ledger"]
+ledger = []
+rpc = []
+mempool = []
+[dependencies]
+async-trait = "0.1"
+bytes = "1"
+thiserror = "2"
+nunchi-common = { package = "nunchi-payment-common-adapter", path = "../common-adapter" }
+nunchi-crypto = { path = "../../../robotics/engine/sdk-crypto" }
+commonware-codec = "=2026.9.0"
+commonware-cryptography = { version = "=2026.9.0", default-features = false }
+commonware-formatting = "=2026.9.0"
+commonware-macros = "=2026.9.0"
+serde = { version = "1", features = ["derive"] }
+serde_with = "3"
+

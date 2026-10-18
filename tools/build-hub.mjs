@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import {demos} from '../src/demos.js';
 import './build-robotics.mjs';
 import './build-operations.mjs';
+import './build-payments.mjs';
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const card=d=>`<article class="demo-card" id="demo-${esc(d.id)}" data-category="${esc(d.category)}" aria-labelledby="title-${esc(d.id)}">
  <div class="preview-block"><div class="preview-topline"><span><i aria-hidden="true"></i> ${esc(d.title.toUpperCase())}</span><span>INTERACTIVE DEMO / ${esc(d.number)}</span></div><a class="preview-link" href="${esc(d.path)}" aria-label="Open ${esc(d.title)}"><video class="demo-preview" muted loop playsinline preload="none" poster="${esc(d.poster)}" aria-label="${esc(d.preview)}" data-video="${esc(d.video)}"></video><span class="preview-open">Open demo <span aria-hidden="true">↗</span></span></a><div class="preview-caption"><span>${esc(d.preview)}</span><button type="button" class="preview-toggle" data-preview="${esc(d.id)}" aria-pressed="false" aria-label="Play ${esc(d.title)} preview">▶ Preview</button></div></div>

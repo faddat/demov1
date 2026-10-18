@@ -62,5 +62,21 @@ export const demos = [
   takeaway:'See how developers can build traceable usage accounting, customer billing and operational monitoring around SDK-backed application records.',
   scope:'Synthetic usage & modeled charges · genuine local SDK execution',
   source:'AI Operations Center v1 · SDK eea35ced709f68c15d6fbc8bcc754696a7e44374'
+ },
+ {
+  id:'payments',number:'05',category:'finance',eyebrow:'FINANCIAL INFRASTRUCTURE & AUTONOMOUS AGENTS',title:'Agent Payment Network',headline:'When agents need to pay for work.',
+  description:'Watch AI agents request paid services, authorize transactions and transfer demonstration assets using Nunchi SDK components. Inspect every payment from signed intent to ledger state.',
+  path:'/demos/payments/',video:'/media/payments-preview.mp4',poster:'/media/payments-poster.png',preview:'Animated SDK run · isolated demo credits and fictional services',
+  tags:['Autonomous payments','Signed transactions','Inspectable accounting'],
+  tryThis:'Have the Research Agent purchase a dataset, inspect its payment, then attempt a purchase beyond its spending limit.',
+  modules:[
+   {name:'Coins ledger & balances',text:'Original SDK code creates an isolated demo asset and applies signed transfers between agent and provider accounts, with actual nonce and balance checks.'},
+   {name:'Crypto & Common',text:'Original Rust transaction encoding, signing and verification run as WebAssembly. Altering a local amount fails verification against the original signature.'},
+   {name:'Oracle service records',text:'A real signed and retrieved service-context record references the payment’s SDK transaction ID and the application request.'}
+  ],
+  application:'The application provides agent behavior, quotes, spending rules, manual approvals, duplicate-request tracking, fulfillment and the interface. All services are fictional. SDK Coins transfers, balances, signatures and Oracle records execute locally in memory. Public demo identities and credits have no real value; no network settlement or production payment security is claimed.',
+  takeaway:'See how developers can combine SDK financial and cryptographic primitives with their own service and authorization systems.',
+  scope:'Actual local SDK asset transfers · public test keys · demo credits only',
+  source:'Agent Payment Network v1 · SDK eea35ced709f68c15d6fbc8bcc754696a7e44374'
  }
 ];

@@ -25,7 +25,7 @@ test('the plus disclosures work without JavaScript and do not navigate away',t=>
 });
 test('filters update the visible demos and accessible count while stopping hidden previews',async t=>{
  const {d}=setup(t);const video=d.querySelector('#demo-office video');let pauses=0;video.pause=()=>pauses++;
- d.querySelector('[data-filter="finance"]').click();assert.equal(d.getElementById('demo-office').hidden,true);assert.equal(d.getElementById('demo-exchange').hidden,false);assert.equal(d.getElementById('demo-count').textContent,'1 interactive demo');assert.ok(pauses>0);assert.equal(d.querySelector('[data-filter="finance"]').getAttribute('aria-pressed'),'true');
+ d.querySelector('[data-filter="finance"]').click();assert.equal(d.getElementById('demo-office').hidden,true);assert.equal(d.getElementById('demo-exchange').hidden,false);assert.equal(d.getElementById('demo-count').textContent,'2 interactive demos');assert.equal(d.getElementById('demo-payments').hidden,false);assert.ok(pauses>0);assert.equal(d.querySelector('[data-filter="finance"]').getAttribute('aria-pressed'),'true');
  d.querySelector('[data-filter="ai"]').click();assert.equal(d.getElementById('demo-exchange').hidden,true);d.querySelector('[data-filter="robotics"]').click();assert.equal(d.getElementById('demo-robotics').hidden,false);assert.equal(d.getElementById('demo-office').hidden,true);assert.equal(d.getElementById('demo-count').textContent,'1 interactive demo');d.querySelector('[data-filter="all"]').click();assert.equal(d.querySelectorAll('.demo-card:not([hidden])').length,demos.length);
 });
 test('preview playback is lazy, muted and stops when its card leaves view',async t=>{

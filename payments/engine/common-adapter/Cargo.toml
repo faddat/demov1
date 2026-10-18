@@ -1,0 +1,10 @@
+[package]
+name = "nunchi-payment-common-adapter"
+version = "0.1.0"
+edition = "2021"
+[lib]
+path = "lib.rs"
+[dependencies]
+base-common = { package = "nunchi-common-wasm-adapter", path = "../../../robotics/engine/common-adapter" }
+commonware-cryptography = { version = "=2026.9.0", default-features = false }
+

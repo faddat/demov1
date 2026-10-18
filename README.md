@@ -1,6 +1,6 @@
 # Nunchi / Demo Lab
 
-A static, responsive gallery that hosts Office Lab, Exchange Lab, Robotics Lab and AI Operations Center on one origin.
+A static, responsive gallery that hosts Office Lab, Exchange Lab, Robotics Lab, AI Operations Center and Agent Payment Network on one origin.
 Each example has a muted video preview, a native “+” disclosure explaining the SDK,
 a launch link, a suggested interaction and an explicit simulation boundary.
 
@@ -26,13 +26,16 @@ clearly distinguished. New categories need a corresponding filter in the templat
 - Exchange Lab v4: `a8240784a81dc91ed6a3bad0929728d543bee01f`, from the existing
   Exchange Lab project. The actual SDK Rust matcher and transaction/signature code
   run as WebAssembly. Wallet rules and settlement are the application’s paper logic.
-- All four use SDK revision `eea35ced709f68c15d6fbc8bcc754696a7e44374`.
+- All five use SDK revision `eea35ced709f68c15d6fbc8bcc754696a7e44374`.
 - Robotics Lab uses that same SDK revision with genuine Crypto/Common/Oracle
   WebAssembly execution. See `robotics/README.md` for the exact APIs, source
   hashes, architecture, verification flow, assumptions and limitations.
 - AI Operations Center generates fresh signed usage records for twenty demo
   identities using the same original Crypto/Common/Oracle sources. See
   `operations/README.md` for accounting units, APIs, export replay and limits.
+- Agent Payment Network applies original Coins transfers with real SDK balance
+  readback, cryptography and related Oracle service records. Commerce policies
+  and provider responses are application logic. See `payments/README.md`.
 - Original demo bundles are preserved except for gallery navigation. Their existing
   sites and access settings are unchanged.
 

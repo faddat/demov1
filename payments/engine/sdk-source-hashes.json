@@ -1,0 +1,24 @@
+{
+  "sdk_commit": "eea35ced709f68c15d6fbc8bcc754696a7e44374",
+  "files": {
+    "src/account.rs": "10e4a971a4591b631ce379de6a5b34c904ea28d9db9cf523cbe9b05206b12748",
+    "src/asset.rs": "3e5c69c64aac343261a4b5cc7a4ce1b00c381bddad7cbb9d229f2c873a97e8e0",
+    "src/db.rs": "38ddcf1ded12c5c2c089402dc79d2c85ba30544ecc9e4f0ac37b78665f955fce",
+    "src/events.rs": "0b5c958f4cdfb1b0686fa3d61da0c683c9c28c5d22f2c07f157b124b2c7145d7",
+    "src/factory.rs": "26b606ded298587e23616ecc4b8d3967184870fcd74aa338cc8f7831f5976c70",
+    "src/fees.rs": "64e5e98ef151e8786aed3ac5dd96b9ecfd8095c7e8b54184b3c5e7b424163184",
+    "src/genesis.rs": "ef58decf7c536f0ca6e2d83b18125033710d9e497cd37ed6787e6e97948c1c8b",
+    "src/ledger.rs": "a8aa0ac72e8774723dd8bb9a0b6fdeebccb730946f850cd3d5dcda39644dc7bc",
+    "src/lib.rs": "e9847cfa67de411865e045b2bc64d75ca20d2aee1366b77239b6e0b107742fe1",
+    "src/rpc/mempool.rs": "162504adb433555ca38d1917c1ff3e5e273f923d04a7a3772a2a436f379511a2",
+    "src/rpc.rs": "d66b31aaffc34e6aa8a6a726086bc2bd47dbda04e3021fa8ef0836ab7496ddce",
+    "src/tests/account.rs": "543268ccf40a85d1ae81ee0f51255dcc4aaf3b257cbe5ce634a2524a103d2cf3",
+    "src/tests/events.rs": "cd8573a2f0205aa327cc40b8d1b0f3fb7025214261710bc500825bdb607c85b8",
+    "src/tests/genesis.rs": "3832a9f3948a5ec911967d4dac600de51df15c345b4adc05937580edac070d4c",
+    "src/tests/ledger.rs": "e96c911ee48f519efaaf1dbc58b1fd1f39099f07f5f5087fe675178d5b498164",
+    "src/tests/mod.rs": "db123cba412134b990d00fb340d2c9d75f13f0fe6f0f39075c53ab4a6d3b2e8c",
+    "src/tests/rpc.rs": "0688c3808a834260893903671b0a890776256cd564c0c6ad7cb22f495ebc7bad",
+    "src/tests/rpc_mempool.rs": "fb3f4c415b5fcc67102e081b1da6819e3123fd479a463d3658a679973bb97242",
+    "src/transaction.rs": "57d87ace9f07bb16dd1c0de1c3040ac963c1299be3990cb8d5b6539afd41e275"
+  }
+}

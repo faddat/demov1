@@ -12,28 +12,19 @@
 
   document.title = 'Nunchi Meter / Office Lab';
   const description = document.querySelector('meta[name="description"]');
-  if (description) description.content = 'Compare a manual team with an agent-assisted team, see modeled speed and cost, and follow every AI call into its signed Nunchi SDK record.';
+  if (description) description.content = 'Compare a manual team with an agent-assisted team, then open the signed usage record behind every software charge.';
 
   setText('.intro-subtitle', 'Same tasks. Same requirements. One shared deadline.');
   setText('.assisted-label small', 'AGENT-ASSISTED TEAM');
   setText('.setup .roster:nth-child(3) .eyebrow', 'AGENT-ASSISTED TEAM');
   setText('.assisted-team .team-heading h2', 'Agent-assisted team');
 
-  const setup = $('.setup');
   const assumptionsButton = $('#assumptions-open');
-  if (setup && assumptionsButton) {
-    const strip = document.createElement('section');
-    strip.className = 'assumptions-strip';
-    strip.setAttribute('aria-label', 'Timing and cost assumptions');
-    strip.innerHTML = '<div><strong>Set the rules before you compare.</strong><span>Review processing time, labor rate, agent time and sample AI prices.</span></div><div class="assumptions-action"></div>';
-    setup.before(strip);
-    assumptionsButton.textContent = 'Edit timing & cost assumptions ↗';
-    strip.querySelector('.assumptions-action').append(assumptionsButton);
-  }
+  if (assumptionsButton) assumptionsButton.textContent = 'Timing & cost ↗';
 
-  const sharedTask = $('.brief-bar');
+  const comparison = $('.comparison');
   let speedProof;
-  if (sharedTask) {
+  if (comparison) {
     speedProof = document.createElement('section');
     speedProof.className = 'speed-proof';
     speedProof.setAttribute('aria-label', 'Current modeled speed comparison');
@@ -42,7 +33,7 @@
       <div class="speed-proof-value manual"><span class="metric-label">Manual first task</span><strong id="speed-manual">—</strong><span class="speed-note">current model</span></div>
       <div class="speed-proof-value assisted"><span class="metric-label">Agent-assisted first task</span><strong id="speed-assisted">—</strong><span class="speed-note">current model</span></div>
       <div class="speed-proof-value delta"><span class="metric-label">Time saved</span><strong id="speed-delta">—</strong><span class="speed-note">first completed task</span></div>`;
-    sharedTask.after(speedProof);
+    comparison.after(speedProof);
   }
 
   const ledgerHeading = $('.ledger-heading');
@@ -57,10 +48,10 @@
     chain.setAttribute('aria-labelledby', 'record-chain-title');
     chain.innerHTML = `
       <div class="record-chain-header">
-        <div><p class="eyebrow">NUNCHI SDK / SIGNED RECORD CHAIN</p><h3 id="record-chain-title">Record every model and tool call.</h3><p class="record-chain-intro">Each accepted call moves through the same visible path: meter the usage, attach the cost, sign the payload, append it to the Oracle ledger, then query or export it.</p></div>
+        <div><p class="eyebrow">NUNCHI SDK / SIGNED RECORD CHAIN</p><h3 id="record-chain-title">From software call to cost record.</h3><p class="record-chain-intro">Meter the usage, attach the cost, sign the payload, append it to the Oracle ledger, then query or export it.</p></div>
         <div class="chain-height"><span>Local test ledger height</span><strong id="chain-height">#000</strong><small>captured session</small></div>
       </div>
-      <div class="record-chain-track" aria-label="AI call to signed SDK record flow">
+      <div class="record-chain-track" aria-label="Software call to signed SDK record flow">
         <div class="chain-packet" aria-hidden="true"></div>
         <article class="chain-block"><span>01 / CALL</span><strong>Model or tool runs</strong><small>Customer, task and agent are attached.</small></article>
         <article class="chain-block"><span>02 / METER</span><strong>Usage becomes cost</strong><small>Tokens and tools use your pricing rules.</small></article>
@@ -73,8 +64,8 @@
     lead.after(chain);
   }
 
-  setText('#integration-title', 'Record every model and tool call.');
-  setText('.integration-lead', 'Nunchi adds a signed cost record around the agents and tools your application already uses. It answers who made the call, what ran, how much it used, what it cost and which task it belonged to.');
+  setText('#integration-title', 'Connect each charge to the work behind it.');
+  setText('.integration-lead', 'Nunchi adds a signed cost record around the software and tools your application already uses: who made the call, what ran, what it used, what it cost and which task it belonged to.');
   const steps = $('.integration-steps');
   if (steps) {
     steps.innerHTML = `
@@ -141,7 +132,7 @@
     }
     const record = records[count - 1];
     const amount = Number(record?.payload?.cost_microusd || 0) / 1e6;
-    const name = record?.payload?.call?.name || 'AI / tool call';
+    const name = record?.payload?.call?.name || 'model / tool call';
     const id = String(record?.record_id || record?.id || '').slice(0, 12);
     setText('#chain-live-state', `${name} accepted · $${amount.toLocaleString('en-US', {minimumFractionDigits: 3, maximumFractionDigits: 4})}`);
     setText('#chain-live-record', id ? `record ${id}…` : `record ${count}`);

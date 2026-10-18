@@ -5,3 +5,8 @@
 .panel-heading select{font-size:10px;border:1px solid #d5dfc8;background:#fffef8;border-radius:4px;padding:5px;color:#759363}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
+/* Readability pass */
+body{font-size:15px}.eyebrow,.overview span,.map-heading,.map-footer,.map-overline,.mini-metrics span,.scope-section h3,.drill-row small,.event-button>span,.account-row small,.panel-heading>span{font-size:10px}.site-header nav,.intro p:last-child,.overview small,.coach p:last-child,.scope-description,.scope-actions button,.event-button,.drill-row,.rank-row,.session-bar{font-size:12px}.button,.scenario-tabs button,.playback span,.guide-actions,.inspection-top label,.inspection-top select,.agent-chip{font-size:11px}.coach .eyebrow{font-size:10px}.breadcrumbs{font-size:10px}.map-meta{font-size:13px}.agent-label{font-size:12px}.disclosure-content p{font-size:14px}.fine-print{font-size:12px}
+@media(max-width:580px){.overview span,.map-heading,.map-footer,.mini-metrics span{font-size:9px}.overview small,.scenario-tabs button,.session-bar{font-size:10px}.coach p:last-child,.scope-description,.event-button{font-size:11px}}
+.chain-strip{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 15px;padding:12px 15px;border:1px solid #d4dec9;border-radius:6px;background:#edf2e6;color:#536d4d;font:11px/1.4 ui-monospace,monospace}.chain-strip span{flex:1;text-align:center}.chain-strip b{color:#93a68a;font-weight:400}@media(max-width:580px){.chain-strip{overflow:auto;justify-content:flex-start;font-size:10px}.chain-strip span{flex:0 0 auto;white-space:nowrap}}
+

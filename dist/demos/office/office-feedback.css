@@ -343,3 +343,47 @@
     left: 50%;
   }
 }
+
+/* Readability pass */
+.record-chain .eyebrow,
+.chain-height span,
+.chain-height small,
+.chain-block span,
+.chain-block small,
+.chain-state,
+.chain-boundary,
+.speed-proof-copy small,
+.speed-proof .speed-note {
+  font-size: 11px;
+}
+
+.record-chain-intro,
+.ledger-lead,
+.integration-section .integration-steps p,
+.integration-boundary,
+.record-provenance,
+.setup small,
+.setup-note,
+.team > p,
+.team-foot {
+  font-size: 13px;
+}
+
+.chain-block strong,
+.assumptions-strip strong {
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .record-chain-intro,
+  .ledger-lead,
+  .integration-section .integration-steps p,
+  .integration-boundary,
+  .record-provenance,
+  .setup small,
+  .setup-note,
+  .team > p,
+  .team-foot {
+    font-size: 12px;
+  }
+}

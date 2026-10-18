@@ -26,12 +26,12 @@ test('the plus disclosures work without JavaScript and do not navigate away',t=>
 test('filters update the visible demos and accessible count while stopping hidden previews',async t=>{
  const {d}=setup(t);const video=d.querySelector('#demo-office video');let pauses=0;video.pause=()=>pauses++;
  d.querySelector('[data-filter="finance"]').click();assert.equal(d.getElementById('demo-office').hidden,true);assert.equal(d.getElementById('demo-exchange').hidden,false);assert.equal(d.getElementById('demo-count').textContent,'1 interactive demo');assert.ok(pauses>0);assert.equal(d.querySelector('[data-filter="finance"]').getAttribute('aria-pressed'),'true');
- d.querySelector('[data-filter="ai"]').click();assert.equal(d.getElementById('demo-exchange').hidden,true);d.querySelector('[data-filter="all"]').click();assert.equal(d.querySelectorAll('.demo-card:not([hidden])').length,2);
+ d.querySelector('[data-filter="ai"]').click();assert.equal(d.getElementById('demo-exchange').hidden,true);d.querySelector('[data-filter="robotics"]').click();assert.equal(d.getElementById('demo-robotics').hidden,false);assert.equal(d.getElementById('demo-office').hidden,true);assert.equal(d.getElementById('demo-count').textContent,'1 interactive demo');d.querySelector('[data-filter="all"]').click();assert.equal(d.querySelectorAll('.demo-card:not([hidden])').length,demos.length);
 });
 test('preview playback is lazy, muted and stops when its card leaves view',async t=>{
  let notify,observed=[];class Observer{constructor(fn){notify=fn;}observe(node){observed.push(node);}disconnect(){}}
  const {d}=setup(t,{Observer}),card=d.getElementById('demo-office'),video=card.querySelector('video'),button=card.querySelector('.preview-toggle');let plays=0,pauses=0;video.play=async()=>{plays++;};video.pause=()=>pauses++;
- assert.equal(observed.length,2);assert.equal(video.getAttribute('src'),null);assert.equal(video.muted,true);
+ assert.equal(observed.length,demos.length);assert.equal(video.getAttribute('src'),null);assert.equal(video.muted,true);
  notify([{target:card,isIntersecting:true}]);await settle();assert.equal(plays,1);assert.equal(button.getAttribute('aria-pressed'),'true');assert.equal(video.getAttribute('src'),'/media/office-preview.mp4');
  notify([{target:card,isIntersecting:false}]);assert.ok(pauses>0);assert.equal(button.getAttribute('aria-pressed'),'false');
  button.click();await settle();assert.equal(button.getAttribute('aria-pressed'),'true');button.click();assert.equal(button.getAttribute('aria-pressed'),'false');
@@ -44,6 +44,6 @@ test('an unavailable preview leaves the launch link and poster intact',async t=>
 });
 test('the host allows SDK WebAssembly and both public market feeds and preserves executable demo bundles',async()=>{
  const headers=await fs.readFile(new URL('../dist/_headers',import.meta.url),'utf8');assert.match(headers,/wasm-unsafe-eval/);assert.match(headers,/https:\/\/api.coinbase.com/);assert.match(headers,/https:\/\/api.exchange.coinbase.com/);
- for(const demo of demos){const source=await fs.readFile(new URL('../dist'+demo.path+'index.html',import.meta.url),'utf8');assert.match(source,/class="hub-home" href="\/"/);for(const [,script]of source.matchAll(/<script(?: type="module")?>([\s\S]*?)<\/script>/g))new Script(script);}
+ for(const demo of demos){const source=await fs.readFile(new URL('../dist'+demo.path+'index.html',import.meta.url),'utf8');assert.match(source,/<a[^>]*href="\/"[^>]*>← All demos<\/a>/);for(const [,script]of source.matchAll(/<script(?: type="module")?>([\s\S]*?)<\/script>/g))new Script(script);}
  const capture=JSON.parse(await fs.readFile(new URL('../tools/preview/exchange-capture.json',import.meta.url),'utf8'));assert.equal(capture.order_verification.valid,true);assert.ok(capture.frames.at(-1).matchCount>capture.frames[0].matchCount);assert.match(capture.scope,/illustrative/);
 });

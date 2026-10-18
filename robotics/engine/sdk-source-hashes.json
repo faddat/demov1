@@ -1,0 +1,26 @@
+{
+  "sdk_commit": "eea35ced709f68c15d6fbc8bcc754696a7e44374",
+  "files": {
+    "sdk-common/src/transaction.rs": "e0a7d57510dc35cb51e981cd3088c1940dcac6e3d63dec5939c771d8785c36b3",
+    "sdk-common/src/lib.rs": "95ada948c9ffcddb4aec60cc3931483d518daa612f5f25c4fde3608946f302f9",
+    "sdk-common/src/runtime.rs": "9bf867b1946eebe6bf04df80c9e2c78d67f4003740bf7357724169af24069627",
+    "sdk-common/src/events.rs": "8f488aff80d311edff9539ad070d819e79a9e60b349492a34783705454b3ac25",
+    "sdk-common/src/account.rs": "57b983dc3d84d7379a91125cbb5e06db3aae28a4eb79ce841c7335c0c8bb91ac",
+    "sdk-common/src/state_db.rs": "b82105a8fc2b07f51f24482df0cb8ce1f4c21e08e0c69b98432ba24c7a3b8f9a",
+    "sdk-common/src/tests/transaction.rs": "3cfb344a1f0865f506125d65a32a1babb1850a85e01d68f4ff2980f08e11c1bc",
+    "sdk-common/src/tests/events.rs": "36ffe15e3e3431ee55039ba5a15ea9ab42737243c85b0eb3b5dda219e511296b",
+    "sdk-common/src/tests/account.rs": "625e1b17b37b5018aaf537daa4d783de0482f94c0efa02452e507a36c8d6f051",
+    "sdk-common/src/tests/mod.rs": "9b73b447a5ada9fb71604495843e32bc7fa9137a3575fe4bf840fe2651c465db",
+    "sdk-common/src/tests/state_db.rs": "f40064ce7cc6ef1b1b3ffefa27edd382c958b30c553ebd107599345454a06185",
+    "sdk-crypto/src/lib.rs": "deed0b7b3f1e7e87d09a1488562835d7bd7e98ac4d7d2fd45c5326f260aee9c9",
+    "sdk-crypto/src/tests/crypto.rs": "803fbd71ea55f150c0ec0f4c05c774052fb07e15f5cc7cca2827265c2472ec83",
+    "sdk-crypto/src/tests/mod.rs": "44ec1e9c9332f28e911169dcc7f9f27e8799d211239dd5914ede89ff7a29ca51",
+    "sdk-oracle/src/transaction.rs": "26a191177e5ed3b4c3c524eb6698f593c2e5c9202170c6df0473eb81fa6d6fea",
+    "sdk-oracle/src/genesis.rs": "6fda9cc6aa63523822f930821fee74fda6571a9cb0ab34cb3277a213cbb79047",
+    "sdk-oracle/src/lib.rs": "456e33403fe1e0239e9cba7164372d75ffde6c6a79fe9185e2f18ed023cd65c7",
+    "sdk-oracle/src/ledger.rs": "24374bb2069b29a28b1c5536a08e89cfaac0ad59078c5829f33a9b81f86fa1a2",
+    "sdk-oracle/src/types.rs": "2485f16989badac8884523f6ca011bdc8dcc302ad77c9e894ad7ecffe382a222",
+    "sdk-oracle/src/db.rs": "7bdc27a8e2d008dd1b83bb746a3309a0a54559be956ae6d7e3061937e60d77db",
+    "sdk-oracle/src/tests/mod.rs": "0b0b08e1d4c4ef4b962b27b3304a427c50a026d73ab3acea3f8cf684a5a96ae1"
+  }
+}

@@ -1,0 +1,11 @@
+import {spawnSync} from 'node:child_process';
+import fs from 'node:fs/promises';
+import {engineDigest,sha,verifySdkSources} from './robotics-source.mjs';
+await verifySdkSources();
+const cargo=process.env.ROBOTICS_CARGO||'cargo';
+const result=spawnSync(cargo,['build','--manifest-path','robotics/engine/Cargo.toml','--target','wasm32-unknown-unknown','--release','--locked',...(process.env.ROBOTICS_OFFLINE?['--offline']:[])],{stdio:'inherit'});
+if(result.status!==0)throw Error('Robotics SDK build failed. Use Rust 1.95+ with wasm32-unknown-unknown installed.');
+const bytes=await fs.readFile('robotics/engine/target/wasm32-unknown-unknown/release/nunchi_robotics_lab_engine.wasm');
+await fs.writeFile('robotics/src/sdk-engine.wasm',bytes);
+await fs.writeFile('robotics/engine/build-fingerprint.json',JSON.stringify({sdk_commit:'eea35ced709f68c15d6fbc8bcc754696a7e44374',engine_source_sha256:await engineDigest(),wasm_sha256:sha(bytes),wasm_bytes:bytes.length},null,2)+'\n');
+console.log('Built genuine robotics SDK engine:',bytes.length,'bytes');

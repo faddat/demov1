@@ -1,0 +1,16 @@
+[package]
+name = "nunchi-oracle"
+version = "2026.9.0-alpha.1"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+async-trait = "0.1"
+bytes = "1"
+thiserror = "2"
+nunchi-common = { package = "nunchi-common-wasm-adapter", path = "../common-adapter" }
+nunchi-crypto = { path = "../sdk-crypto" }
+commonware-codec = "=2026.9.0"
+commonware-cryptography = { version = "=2026.9.0", default-features = false }
+commonware-formatting = "=2026.9.0"
+serde = { version = "1", features = ["derive"] }

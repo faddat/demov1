@@ -1,6 +1,6 @@
 # Nunchi / Demo Lab
 
-A static, responsive gallery that hosts Office Lab and Exchange Lab on one origin.
+A static, responsive gallery that hosts Office Lab, Exchange Lab and Robotics Lab on one origin.
 Each example has a muted video preview, a native “+” disclosure explaining the SDK,
 a launch link, a suggested interaction and an explicit simulation boundary.
 
@@ -26,7 +26,10 @@ clearly distinguished. New categories need a corresponding filter in the templat
 - Exchange Lab v4: `a8240784a81dc91ed6a3bad0929728d543bee01f`, from the existing
   Exchange Lab project. The actual SDK Rust matcher and transaction/signature code
   run as WebAssembly. Wallet rules and settlement are the application’s paper logic.
-- Both use SDK revision `eea35ced709f68c15d6fbc8bcc754696a7e44374`.
+- All three use SDK revision `eea35ced709f68c15d6fbc8bcc754696a7e44374`.
+- Robotics Lab uses that same SDK revision with genuine Crypto/Common/Oracle
+  WebAssembly execution. See `robotics/README.md` for the exact APIs, source
+  hashes, architecture, verification flow, assumptions and limitations.
 - Original demo bundles are preserved except for gallery navigation. Their existing
   sites and access settings are unchanged.
 

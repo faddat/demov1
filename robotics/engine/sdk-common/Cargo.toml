@@ -1,0 +1,19 @@
+[package]
+name = "nunchi-common"
+version = "2026.9.0-alpha.1"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+
+[features]
+default = []
+state = []
+
+[dependencies]
+bytes = "1"
+bech32 = "0.11"
+thiserror = "2"
+nunchi-crypto = { path = "../sdk-crypto" }
+commonware-codec = "=2026.9.0"
+commonware-cryptography = { version = "=2026.9.0", default-features = false }
+commonware-macros = "=2026.9.0"
+

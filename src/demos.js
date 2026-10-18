@@ -30,5 +30,21 @@ export const demos = [
   takeaway:'See how SDK modules can sit underneath a financial application, with signed intent, deterministic matching and inspectable transaction data.',
   scope:'Live market references in the demo · paper assets · SDK in browser',
   source:'Exchange Lab v4 · a8240784a81dc91ed6a3bad0929728d543bee01f'
+ },
+ {
+  id:'robotics',number:'03',category:'robotics',eyebrow:'ROBOTICS & AUTONOMOUS SYSTEMS',title:'Robotics Lab',headline:'Autonomous work. A record you can check.',
+  description:'Follow an autonomous robot from task assignment to verified completion. Inspect signed events, explore operational records and see how the SDK fits into software operating physical systems.',
+  path:'/demos/robotics/',video:'/media/robotics-preview.mp4',poster:'/media/robotics-poster.png',preview:'Animated SDK run · simulated warehouse · 4× playback',
+  tags:['Follow a delivery','Simulate a failure','Test a signed record'],
+  tryThis:'Let a robot complete a delivery. Open its record, change the destination locally, then verify the original signature again.',
+  modules:[
+   {name:'Crypto & Common',text:'The original Rust SDK signs and verifies each Oracle transaction using the robot’s public demo identity.'},
+   {name:'Oracle ledger & database adapter',text:'Actual SDK code appends namespaced operational payloads, derives record IDs and queries the application-provided in-memory store.'},
+   {name:'Readback & inspectable evidence',text:'The application retrieves each stored event, checks it against the signed payload and exports the original transaction bytes. An offline verifier replays the evidence.'}
+  ],
+  application:'The application simulates the warehouse, robot movement, scheduling, battery, failure detection, reassignment and costs. SDK signing, record writes, reads, queries and signature checks execute locally in WebAssembly. Records are session-local. Public demo keys do not authenticate physical devices; signatures do not prove a delivery happened.',
+  takeaway:'See how software coordinating autonomous systems can associate reported work with machines and tasks, preserve signed events and detect edits to the recorded message.',
+  scope:'Simulated operations & costs · genuine SDK Crypto + Oracle',
+  source:'Robotics Lab v1 · SDK eea35ced709f68c15d6fbc8bcc754696a7e44374'
  }
 ];

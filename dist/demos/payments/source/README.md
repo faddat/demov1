@@ -130,3 +130,7 @@ environment; DOM and responsive-structure checks do not verify real layout.
 The preview is rendered from the same map and actual SDK-driven state, not a
 browser recording.
 
+
+## Guided job
+
+The default walkthrough is an application-scripted research job. Research Agent buys a dataset (15 credits), Data Agent buys a search (2), and Reporting Agent buys analysis (12). Three actual SDK payments and related Oracle records total 29 demo credits at default prices. Each agent uses its separate pre-existing SDK account and spending policy. The service outputs and final research brief are illustrative; no external service or agent model is called. Manual exploration, policy failure and duplicate scenarios remain available.

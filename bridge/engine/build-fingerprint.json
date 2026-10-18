@@ -1,0 +1,8 @@
+{
+  "sdk_commit": "eea35ced709f68c15d6fbc8bcc754696a7e44374",
+  "engine_source_sha256": "3c81acffea1aa39b9131d56c9ac9ab2d1007a176564c3c41303d0f008a0f11b8",
+  "wasm_sha256": "757699f79983fd594003b76525dbd49572fa36b33ed66bfc3f70f118be0f41e1",
+  "bindings_sha256": "3f53b779d617945dac095193685cc5f86eacec35d6cd613acfae3f8d20e623d8",
+  "bindgen_version": "0.2.129",
+  "wasm_bytes": 584089
+}

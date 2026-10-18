@@ -64,10 +64,10 @@ export const demos = [
   source:'AI Operations Center v1 · SDK eea35ced709f68c15d6fbc8bcc754696a7e44374'
  },
  {
-  id:'payments',number:'05',category:'finance',eyebrow:'FINANCIAL INFRASTRUCTURE & AUTONOMOUS AGENTS',title:'Agent Payment Network',headline:'When agents need to pay for work.',
-  description:'Watch AI agents request paid services, authorize transactions and transfer demonstration assets using Nunchi SDK components. Inspect every payment from signed intent to ledger state.',
+  id:'payments',number:'05',category:'payments',eyebrow:'FINANCIAL INFRASTRUCTURE & AUTONOMOUS AGENTS',title:'Agent Payment Network',headline:'Give agents a job. Follow every payment.',
+  description:'Follow a research job as its agents buy data, search and analysis. Watch each payment move through spending rules, SDK execution and a signed record.',
   path:'/demos/payments/',video:'/media/payments-preview.mp4',poster:'/media/payments-poster.png',preview:'Animated SDK run · isolated demo credits and fictional services',
-  tags:['Autonomous payments','Signed transactions','Inspectable accounting'],
+  tags:['Watch a complete job','Challenge the spending rules','Follow every payment'],
   tryThis:'Have the Research Agent purchase a dataset, inspect its payment, then attempt a purchase beyond its spending limit.',
   modules:[
    {name:'Coins ledger & balances',text:'Original SDK code creates an isolated demo asset and applies signed transfers between agent and provider accounts, with actual nonce and balance checks.'},
@@ -78,5 +78,17 @@ export const demos = [
   takeaway:'See how developers can combine SDK financial and cryptographic primitives with their own service and authorization systems.',
   scope:'Actual local SDK asset transfers · public test keys · demo credits only',
   source:'Agent Payment Network v1 · SDK eea35ced709f68c15d6fbc8bcc754696a7e44374'
+ },
+ {
+  id:'bridge',number:'06',category:'crosschain',eyebrow:'CROSS-CHAIN SYSTEMS & VERIFICATION',title:'Bridge Lab',headline:'Two chains. One verified connection.',
+  description:'Follow a threshold certificate between two local test networks. Pause the relay, inspect the source evidence and see the receiver accept or reject it.',
+  path:'/demos/bridge/',video:'/media/bridge-preview.mp4',poster:'/media/bridge-poster.png',preview:'Animated SDK verification run · synthetic local network activity',
+  tags:['Two independent test committees','Verified certificates','Inspect the evidence'],
+  tryThis:'Watch a valid certificate cross the gap, then alter its proposal and compare the receiver’s real verification result.',
+  modules:[{name:'Bridge verification & admission',text:'The pinned BridgeActor verification and submit method bodies execute unchanged through a synchronous browser adapter. Invalid evidence is rejected; valid older views are stale.'},{name:'DKG certificate types / Commonware crypto',text:'The same threshold scheme and Finalization types used by Nunchi DKG generate and verify genuine 3-of-4 BLS12-381 certificates. Keys come from a public local fixture, not a distributed DKG ceremony.'},{name:'Inspectable evidence',text:'Inspect encoded certificates, proposal digests, test keys and receiver decisions. An offline verifier replays exported local commands.'}],
+  application:'The application provides two local network models, synthetic proposals, public test-key setup, the relay queue, guided playback and low-poly islands. No deployed chains, live distributed consensus, Authority module, asset transfer or public-network finality is claimed.',
+  takeaway:'See how developers can reuse verification infrastructure when their application needs evidence from a separately configured network.',
+  scope:'Genuine certificate checks · local fixtures · no asset bridge',
+  source:'Bridge Lab v1 · SDK eea35ced709f68c15d6fbc8bcc754696a7e44374'
  }
 ];

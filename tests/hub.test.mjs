@@ -7,6 +7,7 @@ import {mountHub} from '../src/app.js';
 import {demos} from '../src/demos.js';
 const html=await fs.readFile(new URL('../dist/index.html',import.meta.url),'utf8');
 const settle=()=>new Promise(resolve=>setTimeout(resolve,0));
+test('application coverage groups all six demos into the requested five areas and opens the selected area',t=>{const {d}=setup(t);assert.deepEqual([...d.querySelectorAll('.coverage-item strong')].map(n=>n.textContent),['AI & Automation','Financial Markets','Robotics','Agentic Payments','Cross-chain Systems']);assert.equal(d.querySelectorAll('[data-sector="ai"] .demo-card').length,2);assert.equal(d.querySelectorAll('[data-sector="payments"] #demo-payments').length,1);assert.equal(d.querySelectorAll('[data-sector="crosschain"] #demo-bridge').length,1);d.querySelector('[data-coverage="payments"]').click();assert.equal(d.querySelector('[data-sector="payments"]').hidden,false);assert.equal(d.querySelector('[data-sector="finance"]').hidden,true);assert.equal(d.getElementById('demo-count').textContent,'1 interactive demo');d.querySelector('[data-filter="all"]').click();assert.equal(d.querySelectorAll('[data-sector]:not([hidden])').length,5);});
 function setup(t,{reduced=false,saveData=false,Observer}={}){
  const w=new Window({url:'https://hub.test/',settings:{enableJavaScriptEvaluation:false}});w.document.write(html);
  const media={matches:reduced,addEventListener(){},removeEventListener(){}};w.matchMedia=()=>media;
@@ -25,7 +26,7 @@ test('the plus disclosures work without JavaScript and do not navigate away',t=>
 });
 test('filters update the visible demos and accessible count while stopping hidden previews',async t=>{
  const {d}=setup(t);const video=d.querySelector('#demo-office video');let pauses=0;video.pause=()=>pauses++;
- d.querySelector('[data-filter="finance"]').click();assert.equal(d.getElementById('demo-office').hidden,true);assert.equal(d.getElementById('demo-exchange').hidden,false);assert.equal(d.getElementById('demo-count').textContent,'2 interactive demos');assert.equal(d.getElementById('demo-payments').hidden,false);assert.ok(pauses>0);assert.equal(d.querySelector('[data-filter="finance"]').getAttribute('aria-pressed'),'true');
+ d.querySelector('[data-filter="finance"]').click();assert.equal(d.getElementById('demo-office').hidden,true);assert.equal(d.getElementById('demo-exchange').hidden,false);assert.equal(d.getElementById('demo-count').textContent,'1 interactive demo');assert.equal(d.getElementById('demo-payments').hidden,true);assert.ok(pauses>0);assert.equal(d.querySelector('[data-filter="finance"]').getAttribute('aria-pressed'),'true');
  d.querySelector('[data-filter="ai"]').click();assert.equal(d.getElementById('demo-exchange').hidden,true);d.querySelector('[data-filter="robotics"]').click();assert.equal(d.getElementById('demo-robotics').hidden,false);assert.equal(d.getElementById('demo-office').hidden,true);assert.equal(d.getElementById('demo-count').textContent,'1 interactive demo');d.querySelector('[data-filter="all"]').click();assert.equal(d.querySelectorAll('.demo-card:not([hidden])').length,demos.length);
 });
 test('preview playback is lazy, muted and stops when its card leaves view',async t=>{

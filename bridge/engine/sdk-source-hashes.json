@@ -1,0 +1,8 @@
+{
+  "sdk_commit": "eea35ced709f68c15d6fbc8bcc754696a7e44374",
+  "files": {
+    "dkg-consensus.rs": "80f4dc69556e825f049228dac6e377f746b2c17e95853b4efc4ba96c4c28bfef",
+    "bridge-lib.rs": "96313039bb3f4fddeca0c21fd6b98f17821e02fc61817ae206224029fc059196",
+    "bridge-example.md": "0ec6973558d0f7b9626e15eb26d136b9ccfe26e4c585e462f5e6a70696e0fb49"
+  }
+}

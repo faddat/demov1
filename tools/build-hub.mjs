@@ -1,8 +1,10 @@
 import fs from 'node:fs/promises';
 import {demos} from '../src/demos.js';
+import {sectors,icon} from '../src/sectors.js';
 import './build-robotics.mjs';
 import './build-operations.mjs';
 import './build-payments.mjs';
+import './build-bridge.mjs';
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const card=d=>`<article class="demo-card" id="demo-${esc(d.id)}" data-category="${esc(d.category)}" aria-labelledby="title-${esc(d.id)}">
  <div class="preview-block"><div class="preview-topline"><span><i aria-hidden="true"></i> ${esc(d.title.toUpperCase())}</span><span>INTERACTIVE DEMO / ${esc(d.number)}</span></div><a class="preview-link" href="${esc(d.path)}" aria-label="Open ${esc(d.title)}"><video class="demo-preview" muted loop playsinline preload="none" poster="${esc(d.poster)}" aria-label="${esc(d.preview)}" data-video="${esc(d.video)}"></video><span class="preview-open">Open demo <span aria-hidden="true">↗</span></span></a><div class="preview-caption"><span>${esc(d.preview)}</span><button type="button" class="preview-toggle" data-preview="${esc(d.id)}" aria-pressed="false" aria-label="Play ${esc(d.title)} preview">▶ Preview</button></div></div>
@@ -12,7 +14,9 @@ const card=d=>`<article class="demo-card" id="demo-${esc(d.id)}" data-category="
 await fs.mkdir('dist/assets',{recursive:true});
 const template=await fs.readFile('src/index.html','utf8');
 if(template.split('<!--DEMO_CATALOG-->').length!==2)throw Error('Demo insertion point missing.');
-await fs.writeFile('dist/index.html',template.replace('<!--DEMO_CATALOG-->',demos.map(card).join('\n')).replaceAll('__DEMO_COUNT__',demos.length).replaceAll('__PADDED_COUNT__',String(demos.length).padStart(2,'0')));
+const coverage=`<section class="coverage" aria-labelledby="coverage-title"><div class="coverage-heading"><p class="eyebrow" id="coverage-title">NUNCHI SDK / APPLICATION COVERAGE</p><p>Explore what developers can build with the same modular infrastructure.</p></div><div class="coverage-grid">${sectors.map(s=>`<a href="#sector-${s.id}" class="coverage-item" data-coverage="${s.id}">${icon(s.icon)}<span><strong>${esc(s.title)}</strong><small>${s.demos.map(id=>esc(demos.find(d=>d.id===id).title)).join(' · ')}</small></span><b aria-hidden="true">↗</b></a>`).join('')}</div><p class="coverage-note">Shared primitives. Different applications. <span>Each example shows which modules it uses and what the application adds.</span></p></section>`;
+const catalog=sectors.map(s=>`<section class="sector-group" id="sector-${s.id}" data-sector="${s.id}" aria-labelledby="heading-${s.id}"><div class="sector-heading"><div>${icon(s.icon)}<div><h3 id="heading-${s.id}">${esc(s.title)}</h3><p>${esc(s.description)}</p></div></div><span>${esc(s.modules)}</span></div>${s.demos.map(id=>card(demos.find(d=>d.id===id))).join('\n')}</section>`).join('\n');
+await fs.writeFile('dist/index.html',template.replace('<!--APPLICATION_COVERAGE-->',coverage).replace('<!--DEMO_CATALOG-->',catalog).replaceAll('__DEMO_COUNT__',demos.length).replaceAll('__PADDED_COUNT__',String(demos.length).padStart(2,'0')));
 for(const file of ['style.css','app.js'])await fs.copyFile('src/'+file,'dist/'+file);
 await fs.writeFile('dist/catalog.json',JSON.stringify(demos,null,2));
 await fs.writeFile('dist/assets/favicon.svg','<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#1246b6"/><path d="M15 48V16h9l16 22V16h9v32h-9L24 26v22Z" fill="#fff"/></svg>');

@@ -1,6 +1,7 @@
 # Nunchi / Demo Lab
 
-A static, responsive gallery that hosts Office Lab, Exchange Lab, Robotics Lab, AI Operations Center and Agent Payment Network on one origin.
+A static, responsive gallery that hosts Office Lab, Exchange Lab, Robotics Lab, AI Operations Center, Agent Payment Network and Bridge Lab on one origin.
+The gallery groups these examples into five application areas: AI & Automation, Financial Markets, Robotics, Agentic Payments, and Cross-chain Systems. `src/sectors.js` maps demos to these groups and names the modules they reuse.
 Each example has a muted video preview, a native “+” disclosure explaining the SDK,
 a launch link, a suggested interaction and an explicit simulation boundary.
 
@@ -16,7 +17,7 @@ Live prices in Exchange Lab require Coinbase’s public spot and candle APIs.
 4. Run the build and tests. The gallery and `catalog.json` are generated together.
 
 Keep examples, modeled outcomes, captured evidence and actual SDK execution
-clearly distinguished. New categories need a corresponding filter in the template.
+clearly distinguished. Register each demo in `src/sectors.js` as well. New categories need a corresponding filter in the template.
 
 ## Demo provenance
 
@@ -26,7 +27,7 @@ clearly distinguished. New categories need a corresponding filter in the templat
 - Exchange Lab v4: `a8240784a81dc91ed6a3bad0929728d543bee01f`, from the existing
   Exchange Lab project. The actual SDK Rust matcher and transaction/signature code
   run as WebAssembly. Wallet rules and settlement are the application’s paper logic.
-- All five use SDK revision `eea35ced709f68c15d6fbc8bcc754696a7e44374`.
+- All six use SDK revision `eea35ced709f68c15d6fbc8bcc754696a7e44374`.
 - Robotics Lab uses that same SDK revision with genuine Crypto/Common/Oracle
   WebAssembly execution. See `robotics/README.md` for the exact APIs, source
   hashes, architecture, verification flow, assumptions and limitations.
@@ -36,6 +37,7 @@ clearly distinguished. New categories need a corresponding filter in the templat
 - Agent Payment Network applies original Coins transfers with real SDK balance
   readback, cryptography and related Oracle service records. Commerce policies
   and provider responses are application logic. See `payments/README.md`.
+- Bridge Lab generates real BLS12-381 threshold certificates for two separate local test committees and executes the original BridgeActor verification/admission method bodies through a synchronous WASM adapter. Proposals, chain timing and relay behavior are application models; no deployed nodes or DKG ceremony run in the browser. See `bridge/README.md`.
 - Original demo bundles are preserved except for gallery navigation. Their existing
   sites and access settings are unchanged.
 
@@ -59,3 +61,5 @@ clearly distinguished. New categories need a corresponding filter in the templat
 Native HTML links and disclosures work without JavaScript. JavaScript adds filters,
 lazy video playback and pausing when videos leave view. Reduced-motion and data-
 saving visitors get posters until they explicitly choose Preview.
+
+Bridge preview: the same low-poly Three.js world is rendered with SVGRenderer while the actual WASM model creates and verifies certificates. Payment preview: a three-service research job executes three actual SDK transfers totaling 29 demo credits. These are animated SDK runs, not browser recordings or observations of public networks.

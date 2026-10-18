@@ -18,7 +18,7 @@ test('every catalog entry hosts its own demo and has a preview, scope, SDK modul
  const {d}=setup(t);assert.equal(d.querySelectorAll('.demo-card').length,demos.length);assert.equal(d.getElementById('demo-count').textContent,demos.length+' interactive demos');
  for(const demo of demos){const card=d.getElementById('demo-'+demo.id);assert.equal(card.querySelector('.demo-launch').getAttribute('href'),demo.path);assert.equal(card.querySelector('.preview-link').getAttribute('href'),demo.path);assert.equal(card.querySelector('video').dataset.video,demo.video);assert.ok(card.textContent.includes(demo.application));for(const module of demo.modules)assert.ok(card.textContent.includes(module.name));for(const asset of [demo.path+'index.html',demo.video,demo.poster])assert.ok((await fs.stat(new URL('../dist'+asset,import.meta.url))).size>100);}
  assert.doesNotMatch(d.body.textContent,/200 organizations|Millions of AI decisions/);
- assert.equal(d.querySelector('h1').textContent,'See the SDKat work.');
+ assert.equal(d.querySelector('h1').textContent,'One SDK.Multiple applications.');
 });
 test('the plus disclosures work without JavaScript and do not navigate away',t=>{
  const {d}=setup(t);for(const details of d.querySelectorAll('.sdk-details')){assert.equal(details.open,false);assert.equal(details.querySelector('.plus').textContent,'+');details.querySelector('summary').click();assert.equal(details.open,true);assert.ok(details.querySelector('h4').textContent.includes('application'));details.querySelector('summary').click();assert.equal(details.open,false);}

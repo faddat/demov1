@@ -1,0 +1,4 @@
+import {spawnSync} from 'node:child_process';import fs from 'node:fs/promises';import {operationsDigest,sha} from './operations-source.mjs';
+const r=spawnSync(process.env.OPERATIONS_CARGO||'cargo',['build','--manifest-path','operations/engine/Cargo.toml','--target','wasm32-unknown-unknown','--release','--locked'],{stdio:'inherit'});if(r.status!==0)throw Error('Operations SDK build failed.');
+const bytes=await fs.readFile('operations/engine/target/wasm32-unknown-unknown/release/nunchi_operations_lab_engine.wasm');await fs.mkdir('operations/src',{recursive:true});await fs.writeFile('operations/src/sdk-engine.wasm',bytes);await fs.writeFile('operations/engine/build-fingerprint.json',JSON.stringify({sdk_commit:'eea35ced709f68c15d6fbc8bcc754696a7e44374',engine_source_sha256:await operationsDigest(),wasm_sha256:sha(bytes),wasm_bytes:bytes.length},null,2));console.log('Built real operations SDK WASM:',bytes.length);
+

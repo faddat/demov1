@@ -46,5 +46,21 @@ export const demos = [
   takeaway:'See how software coordinating autonomous systems can associate reported work with machines and tasks, preserve signed events and detect edits to the recorded message.',
   scope:'Simulated operations & costs · genuine SDK Crypto + Oracle',
   source:'Robotics Lab v1 · SDK eea35ced709f68c15d6fbc8bcc754696a7e44374'
+ },
+ {
+  id:'operations',number:'04',category:'ai',eyebrow:'AI INFRASTRUCTURE & OPERATIONS',title:'AI Operations Center',headline:'Every agent. Every task. Every dollar.',
+  description:'See how an organization can account for AI activity across departments, agents and customers. Investigate spending, inspect usage records and explore the SDK mechanics underneath.',
+  path:'/demos/operations/',video:'/media/operations-preview.mp4',poster:'/media/operations-poster.png',preview:'Animated SDK run · synthetic usage and illustrative prices',
+  tags:['Follow the AI spend','Investigate an agent','Audit a customer bill'],
+  tryThis:'Open the runaway-agent example. Find the research agent, pause its workflow, then inspect and verify the usage behind the spike.',
+  modules:[
+   {name:'Oracle records & queries',text:'Original Rust SDK code records each newly generated usage payload and reads it back from a session-local memory store.'},
+   {name:'Crypto & Common',text:'Twenty public demo identities sign genuine Oracle transactions. Actual SDK signature checks accept the original and reject an edited local payload.'},
+   {name:'Inspectable evidence',text:'SDK-generated IDs, signer and signature bytes, original payloads and transaction bytes connect modeled accounting to actual recorded evidence.'}
+  ],
+  application:'The application simulates AI workflows, token quantities, tool use, pricing, budgets, alerts, billing and dashboard analytics. No provider is called. SDK signing, Oracle writes, reads and verification execute newly in browser WebAssembly. Local records clear on restart. Signatures authenticate messages, not external usage or pricing truth.',
+  takeaway:'See how developers can build traceable usage accounting, customer billing and operational monitoring around SDK-backed application records.',
+  scope:'Synthetic usage & modeled charges · genuine local SDK execution',
+  source:'AI Operations Center v1 · SDK eea35ced709f68c15d6fbc8bcc754696a7e44374'
  }
 ];

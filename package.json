@@ -13,6 +13,6 @@
   "devDependencies": {
     "happy-dom": "21.0.1",
     "three": "0.180.0",
-    "esbuild": "0.28.0"
+    "esbuild": "0.28.1"
   }
 }

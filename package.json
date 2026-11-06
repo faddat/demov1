@@ -11,7 +11,7 @@
     "build:bridge-engine": "node tools/build-bridge-engine.mjs"
   },
   "devDependencies": {
-    "happy-dom": "21.0.1",
+    "happy-dom": "21.0.4",
     "three": "0.180.0",
     "esbuild": "0.28.0"
   }
